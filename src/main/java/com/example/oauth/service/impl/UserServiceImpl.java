@@ -2,6 +2,7 @@ package com.example.oauth.service.impl;
 
 import com.example.oauth.dao.XkMerchantDao;
 import com.example.oauth.model.XkMerchant;
+import com.example.oauth.security.model.CustomUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,7 @@ public class UserServiceImpl implements UserDetailsService {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
 		log.info("loginName========"+user.getLoginName());
-		return new org.springframework.security.core.userdetails.User(user.getLoginName(), user.getLoginPassword(), getAuthority());
+		return new CustomUser(""+user.getId(),user.getLoginName(), user.getLoginPassword(), getAuthority());
 	}
 
 	private List<SimpleGrantedAuthority> getAuthority() {

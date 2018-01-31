@@ -1,5 +1,6 @@
 package com.example.oauth.config;
 
+import com.example.oauth.security.model.CustomUser;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -15,7 +16,10 @@ public class CustomTokenEnhancer implements TokenEnhancer {
             OAuth2Authentication authentication) {
         Map<String, Object> additionalInfo = new HashMap<>();
 //        添加和外的信息到token中
-//        additionalInfo.put("organization", authentication.getName() + "1112");
+        String userId=((CustomUser)authentication.getUserAuthentication().getPrincipal()).getUserId();
+        additionalInfo.put("userId", userId);
+        //覆盖access_token里面的user_name字段
+        additionalInfo.put("user_name","x");
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
         return accessToken;
     }
