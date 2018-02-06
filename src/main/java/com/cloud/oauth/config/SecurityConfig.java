@@ -1,6 +1,6 @@
-package com.example.oauth.config;
+package com.cloud.oauth.config;
 
-import com.example.oauth.encode.CustomPasswordEncoder;
+import com.cloud.oauth.encode.CustomPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +24,8 @@ import javax.annotation.Resource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+
 
     @Resource(name = "userService")
     private UserDetailsService userDetailsService;
@@ -50,18 +52,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anonymous().disable()
                 .authorizeRequests()
                 .antMatchers("/api-docs/**").permitAll()
-                .and().formLogin();
+                .and()
+                .formLogin();
     }
 
 //    @Bean
 //    public TokenStore tokenStore() {
 //        return new InMemoryTokenStore();
 //    }
-
-
-
-
-
 
 
     @Bean

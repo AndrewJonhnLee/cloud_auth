@@ -1,4 +1,4 @@
-package com.example.oauth.security.model;
+package com.cloud.oauth.security.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

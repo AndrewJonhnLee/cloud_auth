@@ -1,11 +1,13 @@
-package com.example.oauth.service.impl;
+package com.cloud.oauth.service.impl;
 
-import com.example.oauth.dao.XkMerchantDao;
-import com.example.oauth.model.XkMerchant;
-import com.example.oauth.security.model.CustomUser;
+import com.cloud.oauth.dao.XkMerchantDao;
+import com.cloud.oauth.handler.CustomAuthEvent;
+import com.cloud.oauth.model.XkMerchant;
+import com.cloud.oauth.security.model.CustomUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,6 +22,9 @@ import java.util.List;
 public class UserServiceImpl implements UserDetailsService {
 
 	private static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+
+	@Autowired
+	private ApplicationEventPublisher eventPublisher;
 	
 	@Autowired
 	private XkMerchantDao sysUserDao;
@@ -59,6 +64,8 @@ public class UserServiceImpl implements UserDetailsService {
 		if(user == null){
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
+		eventPublisher.publishEvent(new CustomAuthEvent(user));
+
 		log.info("loginName========"+user.getLoginName());
 		return new CustomUser(""+user.getId(),user.getLoginName(), user.getLoginPassword(), getAuthority());
 	}

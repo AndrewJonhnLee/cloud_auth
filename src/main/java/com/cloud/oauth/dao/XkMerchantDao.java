@@ -1,6 +1,6 @@
-package com.example.oauth.dao;
+package com.cloud.oauth.dao;
 
-import com.example.oauth.model.XkMerchant;
+import com.cloud.oauth.model.XkMerchant;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

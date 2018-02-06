@@ -1,6 +1,6 @@
-package com.example.oauth.config;
+package com.cloud.oauth.config;
 
-import com.example.oauth.security.model.CustomUser;
+import com.cloud.oauth.security.model.CustomUser;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;

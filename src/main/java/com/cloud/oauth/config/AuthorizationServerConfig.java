@@ -1,4 +1,4 @@
-package com.example.oauth.config;
+package com.cloud.oauth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

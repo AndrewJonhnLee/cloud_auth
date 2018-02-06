@@ -1,4 +1,4 @@
-package com.example.oauth.controller;
+package com.cloud.oauth.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

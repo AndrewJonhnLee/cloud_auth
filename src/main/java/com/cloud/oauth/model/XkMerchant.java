@@ -1,4 +1,4 @@
-package com.example.oauth.model;
+package com.cloud.oauth.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

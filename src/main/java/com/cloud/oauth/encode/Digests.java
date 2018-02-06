@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2005-2012 springside.org.cn
  */
-package com.example.oauth.encode;
+package com.cloud.oauth.encode;
 
 import java.io.IOException;
 import java.io.InputStream;

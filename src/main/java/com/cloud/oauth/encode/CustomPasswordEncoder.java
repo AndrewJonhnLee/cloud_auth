@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2017-2020 feima</a> All rights reserved.
  */
-package com.example.oauth.encode;
+package com.cloud.oauth.encode;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -46,4 +46,14 @@ public class CustomPasswordEncoder implements PasswordEncoder{
 	public boolean matches(CharSequence rawPassword, String encodedPassword) {
 		return validatePassword(rawPassword.toString(), encodedPassword);
 	}
+
+
+//	public static void main(String args[]){
+//
+//		CustomPasswordEncoder encoder=new CustomPasswordEncoder();
+//
+//		boolean match=encoder.validatePassword("668866","114cdfbe6fb411090b0488899b37236f35cfedaac5256cc9cc9a3f7b");
+//
+//		System.out.println(match);
+//	}
 }
